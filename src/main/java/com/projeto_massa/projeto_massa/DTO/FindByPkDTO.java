@@ -1,5 +1,7 @@
 package com.projeto_massa.projeto_massa.DTO;
 
+import org.springframework.beans.BeanUtils;
+
 import com.projeto_massa.projeto_massa.entites.Game;
 
 
@@ -18,15 +20,7 @@ public class FindByPkDTO{
 		
 	}
 	public FindByPkDTO(Game game) {
-		this.id = game.getId();
-		this.title = game.getTitle();
-		this.year = game.getYear();
-		this.genre = game.getGenre();
-		this.platforms = game.getPlatforms();
-		this.score = game.getScore();
-		this.imgUrl = game.getImgUrl();
-		this.shortDescription = game.getShortDescription();
-		this.longDescription = game.getLongDescription();
+		BeanUtils.copyProperties(game, this);
 	}
 	public Long getId() {
 		return id;
