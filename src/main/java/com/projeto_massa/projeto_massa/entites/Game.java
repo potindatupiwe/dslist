@@ -33,6 +33,7 @@ public class Game {
 
 	@Override
 	public int hashCode() {
+		
 		return Objects.hash(id, title);
 	}
 
