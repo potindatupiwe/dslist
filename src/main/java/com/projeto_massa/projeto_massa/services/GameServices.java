@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.projeto_massa.projeto_massa.DTO.DTO;
 import com.projeto_massa.projeto_massa.DTO.FindByPkDTO;
 import com.projeto_massa.projeto_massa.entites.Game;
+import com.projeto_massa.projeto_massa.projections.GameMinProjection;
 import com.projeto_massa.projeto_massa.repository.GameRepository;
 
 
@@ -27,6 +28,10 @@ public class GameServices {
 			result.add(new DTO(game_element));
 		}
 		return result;
+	}
+	@Transactional(readOnly = true)
+	public List<DTO> findGameList(Long listId){
+		return game.searchByList(listId).stream().map(x -> new DTO(x)).toList();
 	}
 	@Transactional(readOnly = true)
 	public FindByPkDTO findByPk(Long pk) {

@@ -1,0 +1,11 @@
+package com.projeto_massa.projeto_massa.projections;
+
+public interface GameMinProjection {
+	Long getId();
+	String getTitle();
+	Integer getYear();
+	String getImgUrl();
+	String getShortDescription();
+	Integer getPosition();
+	
+}

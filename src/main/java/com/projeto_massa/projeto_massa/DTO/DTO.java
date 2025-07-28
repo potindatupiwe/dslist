@@ -1,6 +1,9 @@
 package com.projeto_massa.projeto_massa.DTO;
 
+import org.springframework.beans.BeanUtils;
+
 import com.projeto_massa.projeto_massa.entites.Game;
+import com.projeto_massa.projeto_massa.projections.GameMinProjection;
 
 // Esse é do Game
 public class DTO {
@@ -23,7 +26,14 @@ public class DTO {
 		this.imgUrl = entity.getImgUrl();
 		this.id = entity.getId();
 	}
-
+	
+	public DTO(GameMinProjection game) {
+		this.title = game.getTitle();
+		this.year = game.getYear();
+		this.imgUrl = game.getImgUrl();
+		this.id = game.getId();
+	}
+	
 	public Long getId() {
 		return id;
 	}
