@@ -19,8 +19,15 @@ public class FindByPkDTO{
 	public FindByPkDTO() {
 		
 	}
-	public FindByPkDTO(Game game) {
-		BeanUtils.copyProperties(game, this);
+	public FindByPkDTO(Game entity) {
+		this.shortDescription = entity.getShortDescription();
+		this.longDescription = entity.getLongDescription();
+		this.title = entity.getTitle();
+		this.year = entity.getYear();
+		this.genre = entity.getGenre();
+		this.platforms = entity.getPlatforms();
+		this.imgUrl = entity.getImgUrl();
+		this.id = entity.getId();
 	}
 	public Long getId() {
 		return id;
